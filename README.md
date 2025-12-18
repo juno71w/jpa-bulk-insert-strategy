@@ -47,7 +47,7 @@
 
 ## 인사이트
 
-* **전략의 선택**: 데이터 양이 적다면 생산성이 높은 `IDENTITY`가 유리하지만, 대용량 처리가 잦은 시스템이라면 `SEQUENCE` 전략이나 별도의 Bulk용 모듈(JDBC)을 고려해야 합니다. 🧐
+* **전략의 선택**: 데이터 양이 적다면 생산성이 높은 `IDENTITY`가 유리하지만, 대용량 처리가 잦은 시스템이라면 `SEQUENCE` 전략이나 별도의 Bulk용 모듈(JDBC)을 고려해야 합니다.
 * **옵션의 중요성**: `reWriteBatchedInserts=true` (PostgreSQL) 또는 `rewriteBatchedStatements=true` (MySQL)와 같은 드라이버 옵션을 설정해야만 실제 다중 행(Multi-row) `INSERT`가 수행됩니다.
 * **트레이드 오프(Trade-off)**:
 * **JDBC**: 압도적 성능 이점이 있으나, SQL을 직접 작성해야 하므로 Type-Safe하지 않고 생산성이 떨어집니다.
