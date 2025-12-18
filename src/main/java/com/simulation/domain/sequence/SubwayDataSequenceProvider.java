@@ -1,0 +1,33 @@
+package com.simulation.domain.sequence;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SubwayDataSequenceProvider {
+
+    /**
+     * - 테스트 데이터 생성
+     * - 24시간(1440분)을 10 분 간격으로 144 개의 Set 데이터 생성
+     * => 10 * 144 = 1440개의 데이터 생성
+     */
+    public static List<SubwayStatsSequence> createData(int stations) {
+        List<SubwayStatsSequence> testData = new ArrayList<>();
+
+        LocalDateTime startTime = LocalDate.now().atStartOfDay()
+                .minusDays(1L)
+                .truncatedTo(ChronoUnit.HOURS);
+
+        for (int station = 1; station <= stations; station++) {
+            for (int min = 0; min < 1440; min += 10) {
+                LocalDateTime recordTime = startTime.plusMinutes(min);
+                SubwayStatsSequence subwayStatsSequence = new SubwayStatsSequence("역-" + station, recordTime);
+                testData.add(subwayStatsSequence);
+            }
+        }
+
+        return testData;
+    }
+}

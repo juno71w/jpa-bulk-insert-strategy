@@ -1,0 +1,36 @@
+package com.simulation.domain.identity;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.concurrent.ThreadLocalRandom;
+
+
+@Getter
+@NoArgsConstructor
+@Table(name = "subway_stats_identity")
+@Entity
+public class SubwayStatsIdentity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String stationName;
+
+    private int boardingCount;    // 승차 인원
+
+    private int exitingCount;   // 하차 인원
+
+    private LocalDateTime time;
+
+    public SubwayStatsIdentity(String stationName, LocalDateTime time) {
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+
+        this.stationName = stationName;
+        this.boardingCount = random.nextInt(1000);
+        this.exitingCount = random.nextInt(1000);
+        this.time = time;
+    }
+}
