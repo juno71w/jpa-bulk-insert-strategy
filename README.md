@@ -1,4 +1,4 @@
-# JPA & JDBC Bulk Insert 성능 분석 프로젝트
+# JPA PK 생성 전략 별 Bulk Insert 방식 전략 
 
 이 프로젝트는 JPA 환경에서 대용량 데이터를 삽입할 때, **PK 생성 전략(ID Generation Strategy)**에 따른 Bulk Insert 동작 여부와 그에 따른 **성능 차이**를 실측하고 분석합니다.
 
